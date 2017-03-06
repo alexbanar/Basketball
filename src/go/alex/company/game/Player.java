@@ -20,7 +20,7 @@ public class Player {
     private double freeThrowLineTargetShootingPersents;
     private double fieldAreaTargetShootingPersents;
     private double threePointsAreaTargetShootingPersents;
-/*
+
     public Player(String firstName, String lastName, LocalDateTime birthDate, int height, int shirtNumber,
                   double freeThrowLineTargetShootingPersents, double fieldAreaTargetShootingPersents,
                   double threePointsAreaTargetShootingPersents) {
@@ -33,14 +33,27 @@ public class Player {
         this.fieldAreaTargetShootingPersents = fieldAreaTargetShootingPersents;
         this.threePointsAreaTargetShootingPersents = threePointsAreaTargetShootingPersents;
     }
-*/
-    public Player()
+
+    public Player(Team team)
     {
         this.firstName = IO.getString("Enter Player Fitst Name: ");
         this.lastName = IO.getString("Enter Player Last Name: ");
         this.birthDate = IO.getDate(" of Birthday of Player: ", 1975, 2012);
         this.height = IO.getInt("Enter Player Height in Centimeters: ");
-        this.shirtNumber = IO.getInt("Enter Player Shirt Number: ", 0, 99);
+
+        int shirtNumber = 0;
+        boolean isExit = false;
+        do
+        {
+            shirtNumber = IO.getInt("Enter Player Shirt Number: ", 0, 99);
+            Player existentPlayer = team.getPlayerByShirtNumber(shirtNumber);
+            if(existentPlayer == null)
+            {
+                this.shirtNumber = shirtNumber;
+                isExit = true;
+            }
+        } while(!isExit);
+
         this.freeThrowLineTargetShootingPersents = IO.getDouble("Enter Player Free Throw Line Target Shooting Persents: ", 0, 100);
         this.fieldAreaTargetShootingPersents = IO.getDouble("Enter Player Field Area Target Shooting Persents: ", 0, 100);
         this.threePointsAreaTargetShootingPersents = IO.getDouble("Enter Player Three Points Target Shooting Persents: ", 0, 100);

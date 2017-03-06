@@ -27,7 +27,8 @@ public class Team
         }
         else
         {
-            for (Player player : players) {
+            for (Player player : players)
+            {
                 System.out.println(player + "\n");
             }
         }
@@ -49,5 +50,32 @@ public class Team
 
     public ArrayList<Player> getPlayers() {
         return players;
+    }
+
+    public Player getPlayerByShirtNumber(int newShirtNumber)
+    {
+        for (Player player : players)
+        {
+            if(player.getShirtNumber() == newShirtNumber)
+            {
+                if( player instanceof Guard)
+                {
+                    return new Guard((Guard)player);
+                }
+                else
+                {
+                    if( player instanceof OffensePlayer)
+                    {
+                        return new OffensePlayer((OffensePlayer)player);
+                    }
+                    else
+                    {
+                        return new Center((Center)player);
+                    }
+                }
+            }
+        }
+
+        return null;
     }
 }

@@ -18,9 +18,17 @@ public class Guard extends Player
         this.blocksAverageNumberPerGame = blocksAverageNumberPerGame;
     }
 */
-    public Guard()
+
+    public Guard(Guard guard) {
+        super(guard.getFirstName(), guard.getLastName(), guard.getBirthDate(), guard.getHeight(), guard.getShirtNumber(),
+              guard.getFreeThrowLineTargetShootingPersents(), guard.getFieldAreaTargetShootingPersents(),
+              guard.getThreePointsAreaTargetShootingPersents());
+        this.blocksAverageNumberPerGame = guard.getBlocksAverageNumberPerGame();
+    }
+
+    public Guard(Team team)
     {
-        super();
+        super(team);
         this.blocksAverageNumberPerGame = IO.getInt("Enter Blocks Average Number Per Game", 0, 20);
     }
 
@@ -30,5 +38,8 @@ public class Guard extends Player
         return "Guard:\n" + super.toString() + "\nBlocks Average Number Per Game: " + blocksAverageNumberPerGame;
     }
 
+    public int getBlocksAverageNumberPerGame() {
+        return blocksAverageNumberPerGame;
+    }
 }
 

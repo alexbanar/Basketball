@@ -19,9 +19,18 @@ public class Center extends Player
         this.assistsAverageNumberPerGame = assistsAverageNumberPerGame;
     }
 */
-    public Center()
+
+    public Center(Center center) {
+        super(center.getFirstName(), center.getLastName(), center.getBirthDate(), center.getHeight(), center.getShirtNumber(),
+                center.getFreeThrowLineTargetShootingPersents(), center.getFieldAreaTargetShootingPersents(),
+                center.getThreePointsAreaTargetShootingPersents());
+        this.assistsAverageNumberPerGame = center.getAssistsAverageNumberPerGame();
+    }
+
+
+    public Center(Team team)
     {
-        super();
+        super(team);
         this.assistsAverageNumberPerGame = IO.getInt("Enter Assists Average Number Per Game", 0, 20);
     }
 
@@ -31,4 +40,7 @@ public class Center extends Player
         return "Center:\n" + super.toString() + "\nAssists Average Number Per Game: " + assistsAverageNumberPerGame;
     }
 
+    public int getAssistsAverageNumberPerGame() {
+        return assistsAverageNumberPerGame;
+    }
 }

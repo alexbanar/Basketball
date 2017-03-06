@@ -23,15 +23,15 @@ public class AddPlayersToTeamMenu
             int option = IO.getInt("Enter your option: ", 1, 4);
             switch (option) {
                 case 1:
-                    Guard guard = new Guard();
+                    Guard guard = new Guard(team);
                     team.addPlayer(guard);
                     break;
                 case 2:
-                    OffensePlayer offensePlayer = new OffensePlayer();
+                    OffensePlayer offensePlayer = new OffensePlayer(team);
                     team.addPlayer(offensePlayer);
                     break;
                 case 3:
-                    Center center = new Center();
+                    Center center = new Center(team);
                     team.addPlayer(center);
                     break;
                 case 4:
