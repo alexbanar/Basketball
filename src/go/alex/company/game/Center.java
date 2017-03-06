@@ -1,0 +1,34 @@
+package go.alex.company.game;
+
+import go.alex.company.utils.IO;
+
+import java.time.LocalDateTime;
+
+/**
+ * Created by Alex on 04-Mar-17.
+ */
+public class Center extends Player
+{
+    private int assistsAverageNumberPerGame;
+/*
+    public Center(String firstName, String lastName, LocalDateTime birthDate, int height, int shirtNumber,
+                  double freeThrowLineTargetShootingPersents, double fieldAreaTargetShootingPersents,
+                  double threePointsAreaTargetShootingPersents, int assistsAverageNumberPerGame)
+    {
+        super(firstName, lastName, birthDate, height, shirtNumber, freeThrowLineTargetShootingPersents, fieldAreaTargetShootingPersents, threePointsAreaTargetShootingPersents);
+        this.assistsAverageNumberPerGame = assistsAverageNumberPerGame;
+    }
+*/
+    public Center()
+    {
+        super();
+        this.assistsAverageNumberPerGame = IO.getInt("Enter Assists Average Number Per Game", 0, 20);
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Center:\n" + super.toString() + "\nAssists Average Number Per Game: " + assistsAverageNumberPerGame;
+    }
+
+}
