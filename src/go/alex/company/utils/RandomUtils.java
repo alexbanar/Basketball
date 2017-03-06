@@ -46,4 +46,10 @@ public class RandomUtils {
         int r = randGen.nextInt();//-int - int
         return r % (n + 1);
     }
+
+    public static double nextDouble(int min, int max)
+    {
+        double r = min + (max - min) * randGen.nextDouble();
+        return r;
+    }
 }

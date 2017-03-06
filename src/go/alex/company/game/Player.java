@@ -74,7 +74,7 @@ public class Player {
 
     public boolean isOnTargetThrowFromThreePointsArea()
     {
-        if((RandomUtils.randGen.nextDouble() * 100) < threePointsAreaTargetShootingPersents)
+        if(RandomUtils.nextDouble(1, 100) < threePointsAreaTargetShootingPersents)
         {
             return true;
         }
@@ -94,11 +94,11 @@ public class Player {
         System.out.print(" throws From Free Throw Line ");
         if(isOnTargetThrowFromFreeThrowLine())
         {
-            System.out.println(" on Target ");
+            System.out.println(" on Target");
         }
         else
         {
-            System.out.println(" out of Target ");
+            System.out.println(" out of Target");
         }
     }
 
